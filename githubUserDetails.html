@@ -1,0 +1,58 @@
+<!--
+  @description       : 
+  @author            : SUDEER K
+  @group             : 
+  @last modified on  : 10-08-2022
+  @last modified by  : SUDEER K
+  Modifications Log
+  Ver   Date         Author     Modification
+  1.0   10-08-2022   SUDEER K   Initial Version
+-->
+<template>
+        <div class="card" style="background-color:white">
+                <lightning-input type="search" value={username} onchange={updateUsername} label="Enter Github Username"></lightning-input>
+                <lightning-button label="Search" variant="brand" style="margin-top: 24px;margin-left: 10px;" onclick={getGithubStats}></lightning-button>
+            </div>
+
+            <div if:true={userPopulated}>
+                <div class="card">
+                    <div class="img">
+                      <img src={user.image}>
+                    </div>
+                    <div class="infos">
+                      <div class="name">
+                        <h2>{user.name}</h2>
+                        <h4>@{username}</h4>
+                      </div>
+                      <p class="text">
+                        {user.about}
+                      </p>
+                      <span class="text">
+                        <h4>Blog - {user.blog}</h4>
+                      </span>
+                      <span class="text">
+                        <h4>Twitter - {user.twitter}</h4>
+                      </span>   
+                        </br>
+                      <ul class="stats">
+                        <li>
+                            <b><h3>{user.repos}</h3></b>
+                                <b><h4>Repos</h4></b>
+                        </li>
+                        <li>
+                            <b><h3>{user.gists}</h3></b>
+                                <b><h4>Gits</h4></b>
+                        </li>
+                        <li>
+                            <b><h3>{user.followers}</h3></b>
+                                <b><h4>Followers</h4></b>
+                        </li>
+                      </ul>
+                      <div class="links">
+                        <button class="follow" style="margin-left: -10px;">Follow</button>
+                        <button class="view" style="margin-left: 10px;" onclick={handleRedirect} >View profile</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+</template>
