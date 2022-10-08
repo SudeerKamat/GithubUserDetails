@@ -1,0 +1,61 @@
+<!--
+  @description       : 
+  @author            : SUDEER K
+  @group             : 
+  @last modified on  : 10-08-2022
+  @last modified by  : SUDEER K
+  Modifications Log
+  Ver   Date         Author     Modification
+  1.0   10-08-2022   SUDEER K   Initial Version
+-->
+<template>
+        <div class="card" style="background-color:white">
+                <lightning-input type="search" value={username} onchange={updateUsername} label="Enter Github Username"></lightning-input>
+                <lightning-button label="Search" variant="brand" style="margin-top: 24px;margin-left: 10px;" onclick={getGithubStats}></lightning-button>
+            </div>
+
+            <div if:true={userPopulated}>
+                <div class="card">
+                    <div class="img">
+                      <img src={user.image}>
+                    </div>
+                    <div class="infos">
+                      <div class="name">
+                        <h2>{user.name}</h2>
+                        <h4>@{username}</h4>
+                      </div>
+                      <p class="text">
+                        {user.about}
+                      </p>
+                      <ul class="stats">
+                        <li>
+                          <h3>{user.repos}</h3>
+                          <h4>Repos</h4>
+                        </li>
+                        <li>
+                          <h3>{user.gists}</h3>
+                          <h4>Gits</h4>
+                        </li>
+                        <li>
+                          <h3>{user.followers}</h3>
+                          <h4>Followers</h4>
+                        </li>
+                      </ul>
+                      <div class="links">
+                        <button class="follow" style="margin-left: -10px;">Follow</button>
+                        <button class="view" style="margin-left: 10px;">View profile</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <!--div class="slds-var-p-vertical_xxx-small slds-text-heading_small"><b>Github Profile:</b><a href={githubURL} target="_blank"> {githubURL}</a></div>
+                <div class="slds-var-p-vertical_xxx-small slds-text-heading_small"><b>Website:</b><a href={user.blog} target="_blank"> {user.blog}</a></div>
+                <div class="slds-var-p-vertical_xxx-small slds-text-heading_small"><b>About:</b> {user.about}</div>
+                <div class="slds-var-p-vertical_xxx-small slds-text-heading_small"><b>Repos:</b> {user.repos}</div>
+                <div class="slds-var-p-vertical_xxx-small slds-text-heading_small"><b>Gists:</b> {user.gists}</div>
+                <div class="slds-var-p-vertical_xxx-small slds-text-heading_small"><b>Followers:</b> {user.followers}</div-->
+          
+</template>
